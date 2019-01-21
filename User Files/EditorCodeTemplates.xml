@@ -1,0 +1,368 @@
+<TEMPLATES><TEMPLATE name="anon" advanced="false"><DESCRIPTION>Anonymous block</DESCRIPTION><CODE><![CDATA[DECLARE
+   dummy NUMBER;
+BEGIN
+   SELECT count(*) INTO dummy FROM dual;
+   |;
+EXCEPTION
+   WHEN NO_DATA_FOUND THEN
+      NULL;
+   WHEN OTHERS THEN
+      NULL;
+END;]]></CODE></TEMPLATE><TEMPLATE name="assertloc" advanced="false"><DESCRIPTION>Local Assertion Procedure with supporting DBMS_OUTPUT substitute</DESCRIPTION><CODE><![CDATA[DECLARE
+   assertion_failure EXCEPTION;
+   PROCEDURE pl (
+      str         IN   VARCHAR2,
+      len         IN   INTEGER := 80,
+      expand_in   IN   BOOLEAN := TRUE
+   )
+   IS 
+      v_len   PLS_INTEGER     := LEAST (len, 255);
+      v_str   VARCHAR2 (2000);
+   BEGIN
+      IF LENGTH (str) > v_len
+      THEN
+         v_str := SUBSTR (str, 1, v_len);
+         DBMS_OUTPUT.put_line (v_str);
+         pl (SUBSTR (str, len   + 1), v_len,expand_in);
+      ELSE
+         v_str := str;
+         DBMS_OUTPUT.put_line (v_str);
+      END IF;
+   EXCEPTION
+      WHEN OTHERS
+      THEN
+         IF expand_in
+         THEN
+            DBMS_OUTPUT.ENABLE (1000000);
+            DBMS_OUTPUT.put_line (v_str);
+         ELSE
+            RAISE;
+         END IF;
+   END;
+   
+   PROCEDURE assert (
+      condition_in   IN   BOOLEAN,
+      msg_in         IN   VARCHAR2 := NULL
+   )
+   IS
+   BEGIN
+      IF    NOT condition_in
+         OR condition_in IS NULL
+      THEN
+         IF msg_in IS NOT NULL
+         THEN
+            pl (msg_in);
+            pl (DBMS_UTILITY.format_call_stack);
+         END IF;
+
+         RAISE assertion_failure;
+      END IF;
+   END;
+BEGIN
+   -- Sample usage
+   assert ( | my_parameter_in IS NOT NULL,
+      'Value cannot be NULL');
+EXCEPTION
+   WHEN assertion_failure  
+   THEN
+      -- Decide if you want to handle this locally or not.    
+END;]]></CODE></TEMPLATE><TEMPLATE name="autonproc" advanced="false"><DESCRIPTION>Autonomous transaction PROCEDURE shell</DESCRIPTION><CODE><![CDATA[PROCEDURE | ()
+IS
+   -- Available in Oracle8i and above
+   PRAGMA AUTONOMOUS_TRANSACTION;
+BEGIN
+   -- Upon successful completion, save all changes.
+   COMMIT;
+EXCEPTION
+   -- For each error handler, don't forget the rollback!
+   WHEN OTHERS 
+   THEN
+      ROLLBACK;   
+END;]]></CODE></TEMPLATE><TEMPLATE name="bcquery" advanced="false"><DESCRIPTION>BULK COLLECT Query</DESCRIPTION><CODE><![CDATA[DECLARE
+   l_array1 <array_type_declaration>;
+   l_array2 <array_type_declaration>;
+BEGIN
+   -- Fetch into individual collections, one for each
+   -- element in the SELECT list.
+   SELECT |
+      BULK COLLECT INTO l_array1, l_array2
+      FROM 
+     WHERE ;
+END;]]></CODE></TEMPLATE><TEMPLATE name="case" advanced="false"><DESCRIPTION>CASE statment</DESCRIPTION><CODE><![CDATA[case |
+   WHEN condition THEN
+
+   WHEN condition THEN
+
+   ELSE
+
+END CASE;]]></CODE></TEMPLATE><TEMPLATE name="crbl" advanced="false"><DESCRIPTION>Entire cursor block</DESCRIPTION><CODE><![CDATA[DECLARE
+   CURSOR &&c1 IS
+      SELECT | FROM   WHERE;
+   c1rec &&c1%ROWTYPE;
+BEGIN
+   OPEN &&c1;
+   LOOP
+      FETCH &&c1 INTO c1rec;
+      EXIT WHEN &&c1%NOTFOUND;
+   END LOOP;
+   CLOSE &&c1;
+END;]]></CODE></TEMPLATE><TEMPLATE name="crbo" advanced="false"><DESCRIPTION>Package body cursor</DESCRIPTION><CODE><![CDATA[/* declare package body */
+CURSOR c1 RETURN |tablename%ROWTYPE IS
+   SELECT ....;]]></CODE></TEMPLATE><TEMPLATE name="crloop" advanced="false"><DESCRIPTION>Cursor LOOP</DESCRIPTION><CODE><![CDATA[OPEN &&c1;
+LOOP
+   FETCH &&c1.| INTO  ;
+   EXIT WHEN &&c1%NOTFOUND;
+END LOOP;
+CLOSE &&c1;]]></CODE></TEMPLATE><TEMPLATE name="crsp" advanced="false"><DESCRIPTION>Package spec cursor</DESCRIPTION><CODE><![CDATA[/* declare package cursor specification */
+CURSOR c1 RETURN |tablename%ROWTYPE;]]></CODE></TEMPLATE><TEMPLATE name="crt" advanced="false"><DESCRIPTION>CREATE TABLE AS Query</DESCRIPTION><CODE><![CDATA[CREATE TABLE | AS (
+)]]></CODE></TEMPLATE><TEMPLATE name="cur" advanced="false"><DESCRIPTION>CURSOR declaration</DESCRIPTION><CODE><![CDATA[CURSOR c1 IS
+   SELECT | FROM table_name WHERE column_name = value;]]></CODE></TEMPLATE><TEMPLATE name="curfor" advanced="false"><DESCRIPTION>CURSOR FOR-LOOP</DESCRIPTION><CODE><![CDATA[FOR c1_rec IN &&c1 LOOP
+   |;
+END LOOP;]]></CODE></TEMPLATE><TEMPLATE name="curpar" advanced="false"><DESCRIPTION>CURSOR with Parameter declaration</DESCRIPTION><CODE><![CDATA[CURSOR c2 (xxx NUMBER) IS
+   SELECT | FROM table_name WHERE column_name = xxx;]]></CODE></TEMPLATE><TEMPLATE name="curpfor" advanced="false"><DESCRIPTION>CURSOR with Parameter FOR-LOOP</DESCRIPTION><CODE><![CDATA[FOR c2_rec IN c2 (yyy) LOOP
+   |;
+END LOOP;]]></CODE></TEMPLATE><TEMPLATE name="dolocal" advanced="false"><DESCRIPTION>Local DBMS_OUTPUT Substitute</DESCRIPTION><CODE><![CDATA[DECLARE
+
+   -- Will wrap arbitrarily long strings, and automatically expand  
+   -- the DBMS_OUTPUT buffer.
+   PROCEDURE pl (
+      str         IN   VARCHAR2,
+      len         IN   INTEGER := 80,
+      expand_in   IN   BOOLEAN := TRUE
+   )
+   IS 
+      v_len   PLS_INTEGER     := LEAST (len, 255);
+      v_str   VARCHAR2 (2000);
+   BEGIN
+      IF LENGTH (str) > v_len
+      THEN
+         v_str := SUBSTR (str, 1, v_len);
+         DBMS_OUTPUT.put_line (v_str);
+         pl (SUBSTR (str, len   + 1), v_len,expand_in);
+      ELSE
+         v_str := str;
+         DBMS_OUTPUT.put_line (v_str);
+      END IF;
+   EXCEPTION
+      WHEN OTHERS
+      THEN
+         IF expand_in
+         THEN
+            DBMS_OUTPUT.ENABLE (1000000);
+            DBMS_OUTPUT.put_line (v_str);
+         ELSE
+            RAISE;
+         END IF;
+   END;
+BEGIN
+   |
+END;]]></CODE></TEMPLATE><TEMPLATE name="fadel" advanced="false"><DESCRIPTION>FORALL Delete</DESCRIPTION><CODE><![CDATA[DECLARE
+   l_array  <array_type_declaration>;
+BEGIN
+   FORALL indx IN l_array.FIRST .. l_array.LAST
+      DELETE FROM |
+       WHERE column = l_array (indx);
+END;]]></CODE></TEMPLATE><TEMPLATE name="faexc" advanced="false"><DESCRIPTION>FORALL with SAVE EXCEPTIONS error handling</DESCRIPTION><CODE><![CDATA[DECLARE -- Oracle9i and above!
+  l_array   <array_type_declaration>;
+  bulk_errors EXCEPTION;
+   PRAGMA EXCEPTION_INIT ( bulk_errors, -24381 );
+BEGIN    
+   FORALL indx IN l_array.FIRST .. l_array.LAST
+      SAVE EXCEPTIONS
+      /*DML statement of choice*/
+      |;
+EXCEPTION
+   WHEN bulk_errors 
+   THEN 
+      FOR indx IN 1 .. SQL%BULK_EXCEPTIONS.COUNT
+      LOOP
+         DBMS_OUTPUT.PUT_LINE (
+            'Error ' || indx || ' occurred during ' ||
+
+            'iteration ' || SQL%BULK_EXCEPTIONS(indx).ERROR_INDEX ||
+            ' updating name to ' ||
+
+                 enames_with_errors(SQL%BULK_EXCEPTIONS(indx).ERROR_INDEX));
+         DBMS_OUTPUT.PUT_LINE (
+            'Oracle error is ' ||
+            SQLERRM(-1 * SQL%BULK_EXCEPTIONS(indx).ERROR_CODE));
+      END LOOP;   
+END;
+/]]></CODE></TEMPLATE><TEMPLATE name="fains" advanced="false"><DESCRIPTION>FORALL Insert</DESCRIPTION><CODE><![CDATA[DECLARE
+   l_array1     <array_type_declaration>;
+   l_array2     <array_type_declaration>;
+   l_array3     <array_type_declaration>;
+BEGIN
+   FORALL indx IN l_array1.FIRST .. l_array1.LAST
+      INSERT INTO |
+         ( column list )
+         VALUES
+         (l_array2 (indx), l_array3 (indx) ...);
+END;]]></CODE></TEMPLATE><TEMPLATE name="faupd" advanced="false"><DESCRIPTION>FORALL Update</DESCRIPTION><CODE><![CDATA[DECLARE
+   l_array1 <array_type_declaration>;
+   l_array2 <array_type_declaration>;
+BEGIN
+   FORALL indx IN l_array1.FIRST .. l_array1.LAST
+      UPDATE |
+         SET column = l_array2 (indx)
+       WHERE column = l_array1 (indx);
+END;]]></CODE></TEMPLATE><TEMPLATE name="for" advanced="false"><DESCRIPTION>FOR-LOOP statement</DESCRIPTION><CODE><![CDATA[FOR | IN 1 .. 10 LOOP
+
+END LOOP;]]></CODE></TEMPLATE><TEMPLATE name="forwo" advanced="false"><DESCRIPTION>Nested FOR-LOOPs with EXIT-WHEN outer</DESCRIPTION><CODE><![CDATA[<<outer>>
+FOR i IN 1 .. 10 LOOP
+
+   FOR j IN 1 .. 10 LOOP
+
+      EXIT outer WHEN |;
+   END LOOP;
+END LOOP outer;]]></CODE></TEMPLATE><TEMPLATE name="func" advanced="false"><DESCRIPTION>FUNCTION shell</DESCRIPTION><CODE><![CDATA[FUNCTION | () RETURN &&returntype
+IS
+  xxx &&returntype;
+BEGIN
+
+   RETURN xxx;
+END;]]></CODE></TEMPLATE><TEMPLATE name="getline" advanced="false"><DESCRIPTION>Local substitute for UTL_FILE.GET_LINE</DESCRIPTION><CODE><![CDATA[DECLARE
+   -- Trap NO_DATA_FOUND and return EOF flag.
+   file_id UTL_FILE.FILE_TYPE;
+   line VARCHAR2(32767);
+   eof BOOLEAN;
+
+   PROCEDURE get_nextline 
+     (file_in IN UTL_FILE.FILE_TYPE, 
+      line_out OUT VARCHAR2, 
+      eof_out OUT BOOLEAN)
+   IS
+   BEGIN
+      UTL_FILE.GET_LINE (file_in, line_out);
+      eof_out := FALSE;
+   EXCEPTION
+      WHEN NO_DATA_FOUND
+      THEN
+        line_out := NULL;
+        eof_out  := TRUE;
+   END;
+BEGIN /* main */
+   file_id := UTL_FILE.FOPEN (
+      <location>, <filename>, max_linesize => 32767);
+      
+   LOOP
+      get_nextline (file_id, line, eof);
+      EXIT WHEN eof;
+      /*process line*/
+      |
+   END LOOP;
+   
+   UTL_FILE.FCLOSE (file_id);
+END;   ]]></CODE></TEMPLATE><TEMPLATE name="goto" advanced="false"><DESCRIPTION>GOTO statment</DESCRIPTION><CODE><![CDATA[<<code_label>>
+|;
+goto code_label;]]></CODE></TEMPLATE><TEMPLATE name="ift" advanced="false"><DESCRIPTION>IF-THEN statement</DESCRIPTION><CODE><![CDATA[IF | THEN
+
+END IF;]]></CODE></TEMPLATE><TEMPLATE name="ifte" advanced="false"><DESCRIPTION>IF-THEN-ELSE statement</DESCRIPTION><CODE><![CDATA[IF | THEN
+
+ELSE
+
+END IF;]]></CODE></TEMPLATE><TEMPLATE name="iftei" advanced="false"><DESCRIPTION>IF-THEN-ELSIF statement</DESCRIPTION><CODE><![CDATA[IF | THEN
+
+ELSIF condition THEN
+
+ELSE
+
+END IF;]]></CODE></TEMPLATE><TEMPLATE name="invproc" advanced="false"><DESCRIPTION>Invoker Rights PROCEDURE shell</DESCRIPTION><CODE><![CDATA[PROCEDURE | ()
+  AUTHID CURRENT_USER
+IS
+BEGIN
+
+END;]]></CODE></TEMPLATE><TEMPLATE name="lp" advanced="false"><DESCRIPTION>LOOP statement</DESCRIPTION><CODE><![CDATA[LOOP
+   |;
+END LOOP;]]></CODE></TEMPLATE><TEMPLATE name="lpew" advanced="false"><DESCRIPTION>LOOP with EXIT-WHEN statement</DESCRIPTION><CODE><![CDATA[LOOP
+   EXIT WHEN |;
+END LOOP;]]></CODE></TEMPLATE><TEMPLATE name="lpex" advanced="false"><DESCRIPTION>LOOP with EXIT statement</DESCRIPTION><CODE><![CDATA[LOOP
+   IF | THEN
+      EXIT;
+   END IF;
+END LOOP;]]></CODE></TEMPLATE><TEMPLATE name="mta" advanced="false"><DESCRIPTION>MODIFY TABLE ADD</DESCRIPTION><CODE><![CDATA[MODIFY TABLE | ADD (
+)]]></CODE></TEMPLATE><TEMPLATE name="ndsmrq" advanced="false"><DESCRIPTION>NDS multiple row query</DESCRIPTION><CODE><![CDATA[DECLARE
+   l_var VARCHAR2(32767);
+   TYPE refcur_t IS REF CURSOR;
+   l_cursor refcur_t;
+   l_record table%ROWTYPE; -- MODIFY TO MATCH SELECT
+BEGIN
+   OPEN l_cursor FOR 'SELECT | ';
+   LOOP
+      FETCH l_cursor INTO l_record;
+      EXIT WHEN l_cursor%NOTFOUND;
+   END LOOP;
+   CLOSE l_cursor;
+END;]]></CODE></TEMPLATE><TEMPLATE name="ndsplsql" advanced="false"><DESCRIPTION>NDS dynamic PL/SQL block execution</DESCRIPTION><CODE><![CDATA[DECLARE
+   l_block VARCHAR2(32767) :=
+      '| ';
+BEGIN
+   EXECUTE IMMEDIATE 
+      'BEGIN ' || l_block || 'END;'
+      INTO l_var
+      USING var1 IN, var2 IN OUT, var3 OUT;
+END;]]></CODE></TEMPLATE><TEMPLATE name="ndssrq" advanced="false"><DESCRIPTION>NDS single row query</DESCRIPTION><CODE><![CDATA[DECLARE
+   l_var VARCHAR2(32767);
+BEGIN
+   EXECUTE IMMEDIATE 
+      'SELECT | '
+      INTO l_var
+      USING;
+END;]]></CODE></TEMPLATE><TEMPLATE name="proc" advanced="false"><DESCRIPTION>PROCEDURE shell</DESCRIPTION><CODE><![CDATA[PROCEDURE | ()
+IS
+BEGIN
+
+END;]]></CODE></TEMPLATE><TEMPLATE name="recins" advanced="false"><DESCRIPTION>Record-based Insert</DESCRIPTION><CODE><![CDATA[DECLARE  
+   l_record &&tablename%ROWTYPE;
+BEGIN
+   -- Available in Oracle9i Release 2 and above
+   INSERT INTO &&tablename
+      VALUES l_record;
+   |
+END;]]></CODE></TEMPLATE><TEMPLATE name="record" advanced="false"><DESCRIPTION>Sample record declaration</DESCRIPTION><CODE><![CDATA[TYPE |RecordName IS RECORD (
+  deptno  NUMBER;
+  deptname dept.name%TYPE );
+dept_rec RecordName;]]></CODE></TEMPLATE><TEMPLATE name="recupd" advanced="false"><DESCRIPTION>Record-based Update</DESCRIPTION><CODE><![CDATA[DECLARE  
+   l_record &&tablename%ROWTYPE;
+BEGIN
+   -- Available in Oracle9i Release 2 and above
+   UPDATE &&tablename
+      SET ROW = l_record
+    WHERE |;
+END;]]></CODE></TEMPLATE><TEMPLATE name="ups" advanced="false"><DESCRIPTION>UPDATE with SAVEPOINTS</DESCRIPTION><CODE><![CDATA[BEGIN
+   SAVEPOINT my_point;
+   UPDATE | SET ;
+EXCEPTION
+   WHEN OTHERS THEN
+      ROLLBACK TO my_point;
+END;]]></CODE></TEMPLATE><TEMPLATE name="utlfexc" advanced="false"><DESCRIPTION>UTL_FILE exception handling</DESCRIPTION><CODE><![CDATA[DECLARE
+   fid UTL_FILE.FILE_TYPE;
+
+   PROCEDURE recNgo (str IN VARCHAR2)
+   IS
+   BEGIN
+      DBMS_OUTPUT.PUT_LINE (CONCAT('UTL_FILE error: ', str));
+      UTL_FILE.FCLOSE (fid);
+   END;
+BEGIN
+
+    |
+
+EXCEPTION
+   WHEN UTL_FILE.INVALID_PATH
+    THEN recNgo ('invalid_path'); 
+   WHEN UTL_FILE.INVALID_MODE
+    THEN recNgo ('invalid_mode');
+   WHEN UTL_FILE.INVALID_FILEHANDLE
+    THEN recNgo ('invalid_filehandle');
+   WHEN UTL_FILE.INVALID_OPERATION
+    THEN recNgo ('invalid_operation');
+   WHEN UTL_FILE.READ_ERROR
+    THEN recNgo ('read_error');
+   WHEN UTL_FILE.WRITE_ERROR
+    THEN recNgo ('write_error');
+   WHEN UTL_FILE.INTERNAL_ERROR
+    THEN recNgo ('internal_error');
+   WHEN OTHERS
+    THEN recNgo (SQLERRM);
+END;]]></CODE></TEMPLATE></TEMPLATES>

@@ -1,0 +1,403 @@
+﻿{
+ "Rules": [
+  {
+   "Expression": "(?i)\\b(first[ _\\-.]?(name)?)\\b",
+   "Enabled": true,
+   "Category": "Names",
+   "RuleID": 1000,
+   "Type": 0,
+   "Name": "First Name"
+  },{
+   "Expression": "(?i)\\b(fname)\\b",
+   "Enabled": true,
+   "Category": "Names",
+   "RuleID": 1001,
+   "Type": 0,
+   "Name": "First Name (abbreviated)"
+  },{
+   "Expression": "(?i)\\b(middle[ _\\-.]?(name)?)\\b",
+   "Enabled": true,
+   "Category": "Names",
+   "RuleID": 1002,
+   "Type": 0,
+   "Name": "Middle Name"
+  },{
+   "Expression": "(?i)\\b(mname)\\b",
+   "Enabled": true,
+   "Category": "Names",
+   "RuleID": 1003,
+   "Type": 0,
+   "Name": "Middle Name (abbreviated)"
+  },{
+   "Expression": "(?i)\\b(last[ _\\-.]?(name)?)\\b",
+   "Enabled": true,
+   "Category": "Names",
+   "RuleID": 1004,
+   "Type": 0,
+   "Name": "Last Name"
+  },{
+   "Expression": "(?i)\\b(lname)\\b",
+   "Enabled": true,
+   "Category": "Names",
+   "RuleID": 1005,
+   "Type": 0,
+   "Name": "Last Name (abbreviated)"
+  },{
+   "Expression": "(?i)\\b(surname)\\b",
+   "Enabled": true,
+   "Category": "Names",
+   "RuleID": 1006,
+   "Type": 0,
+   "Name": "Surname"
+  },{
+   "Expression": "(?i)\\b(maiden[ _\\-.]?(name)?)\\b",
+   "Enabled": true,
+   "Category": "Names",
+   "RuleID": 1007,
+   "Type": 0,
+   "Name": "Maiden Name"
+  },{
+   "Expression": "(?i)\\b(maidname)\\b",
+   "Enabled": true,
+   "Category": "Names",
+   "RuleID": 1008,
+   "Type": 0,
+   "Name": "Maiden Name (abbreviated)"
+  },{
+   "Expression": "(?i)\\b(given[ _\\-.]?(name)?)\\b",
+   "Enabled": true,
+   "Category": "Names",
+   "RuleID": 1009,
+   "Type": 0,
+   "Name": "Given Name"
+  },{
+   "Expression": "(?i)\\b(gvnname)\\b",
+   "Enabled": true,
+   "Category": "Names",
+   "RuleID": 1010,
+   "Type": 0,
+   "Name": "Given Name (abbreviated)"
+  },{
+   "Expression": "(?i)\\b(gname)\\b",
+   "Enabled": true,
+   "Category": "Names",
+   "RuleID": 1011,
+   "Type": 0,
+   "Name": "Given Name (abbreviated 2)"
+  },{
+   "Expression": "(?i)\\b(addr(ess)?[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Addresses",
+   "RuleID": 1100,
+   "Type": 0,
+   "Name": "Address"
+  },{
+   "Expression": "(?i)\\b(p[.]?[ ]?o[.]?[ _\\-.]?box)\\b",
+   "Enabled": true,
+   "Category": "Addresses",
+   "RuleID": 1101,
+   "Type": 0,
+   "Name": "PO Box"
+  },{
+   "Expression": "(?i)\\b(postal[ _\\-.]?code)\\b",
+   "Enabled": true,
+   "Category": "Addresses",
+   "RuleID": 1102,
+   "Type": 0,
+   "Name": "Postal Code"
+  },{
+   "Expression": "(?i)\\b(zip[ _\\-.]?code)\\b",
+   "Enabled": true,
+   "Category": "Addresses",
+   "RuleID": 1103,
+   "Type": 0,
+   "Name": "ZIP Code"
+  },{
+   "Expression": "(?i)\\b(soc(ial)?[ _\\-.]?sec(urity)?[ _\\-.]?num(ber)?)\\b",
+   "Enabled": true,
+   "Category": "Identifiers",
+   "RuleID": 1200,
+   "Type": 0,
+   "Name": "SSN (US)"
+  },{
+   "Expression": "(?i)\\b(soc(ial)?[ _\\-.]?sec(urity)?[ _\\-.]?no)\\b",
+   "Enabled": true,
+   "Category": "Identifiers",
+   "RuleID": 1201,
+   "Type": 0,
+   "Name": "SSN 2 (US)"
+  },{
+   "Expression": "(?i)\\b(ssn[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Identifiers",
+   "RuleID": 1202,
+   "Type": 0,
+   "Name": "SSN (US) (abbreviated)"
+  },{
+   "Expression": "(?i)\\b(soc(ial)?[ _\\-.]?ins(urance)?[ _\\-.]?num(ber)?)\\b",
+   "Enabled": true,
+   "Category": "Identifiers",
+   "RuleID": 1203,
+   "Type": 0,
+   "Name": "SIN (CA)"
+  },{
+   "Expression": "(?i)\\b(soc(ial)?[ _\\-.]?ins(urance)?[ _\\-.]?no)\\b",
+   "Enabled": true,
+   "Category": "Identifiers",
+   "RuleID": 1204,
+   "Type": 0,
+   "Name": "SIN (CA)"
+  },{
+   "Expression": "(?i)\\b(nat(ional)?[ _\\-.]?ins(urance)?[ _\\-.]?num(ber)?)\\b",
+   "Enabled": true,
+   "Category": "Identifiers",
+   "RuleID": 1205,
+   "Type": 0,
+   "Name": "NINO (UK)"
+  },{
+   "Expression": "(?i)\\b(nat(ional)?[ _\\-.]?ins(urance)?[ _\\-.]?no)\\b",
+   "Enabled": true,
+   "Category": "Identifiers",
+   "RuleID": 1206,
+   "Type": 0,
+   "Name": "NINO (UK)"
+  },{
+   "Expression": "(?i)\\b(nat(ional)?[ _\\-.]?id(entity)?[ _\\-.]?num(ber)?)\\b",
+   "Enabled": true,
+   "Category": "Identifiers",
+   "RuleID": 1207,
+   "Type": 0,
+   "Name": "National Identity Number"
+  },{
+   "Expression": "(?i)\\b(nat(ional)?[ _\\-.]?id(entity)?[ _\\-.]?no)\\b",
+   "Enabled": true,
+   "Category": "Identifiers",
+   "RuleID": 1208,
+   "Type": 0,
+   "Name": "National Identity Number"
+  },{
+   "Expression": "(?i)\\b(tax[ _\\-.]?file[ _\\-.]?num(ber)?)\\b",
+   "Enabled": true,
+   "Category": "Identifiers",
+   "RuleID": 1209,
+   "Type": 0,
+   "Name": "Tax File Number"
+  },{
+   "Expression": "(?i)\\b(tax[ _\\-.]?file[ _\\-.]?no)\\b",
+   "Enabled": true,
+   "Category": "Identifiers",
+   "RuleID": 1210,
+   "Type": 0,
+   "Name": "Tax File Number"
+  },{
+   "Expression": "(?i)\\b(tel(ephone)?[ _\\-.]?num(ber)?[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1300,
+   "Type": 0,
+   "Name": "Telephone Number"
+  },{
+   "Expression": "(?i)\\b(tel(ephone)?[ _\\-.]?no[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1301,
+   "Type": 0,
+   "Name": "Telephone Number 2"
+  },{
+   "Expression": "(?i)\\b\\w*[ _\\-.]?(phone[ _\\-.]?num(ber)?[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1302,
+   "Type": 0,
+   "Name": "Telephone Number 3"
+  },{
+   "Expression": "(?i)\\b\\w*[ _\\-.]?(phone[ _\\-.]?no[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1303,
+   "Type": 0,
+   "Name": "Telephone Number 4"
+  },{
+   "Expression": "(?i)\\b\\w*[ _\\-.]?(tel(ephone)[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1304,
+   "Type": 0,
+   "Name": "Telephone Number (abbreviated)"
+  },{
+   "Expression": "(?i)\\b\\w*[ _\\-.]?(phone[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1305,
+   "Type": 0,
+   "Name": "Telephone Number (abbreviated 2)"
+  },{
+   "Expression": "(?i)\\b(home[ _\\-.]?num(ber)?)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1306,
+   "Type": 0,
+   "Name": "Home Number"
+  },{
+   "Expression": "(?i)\\b(home[ _\\-.]?no)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1307,
+   "Type": 0,
+   "Name": "Home Number 2"
+  },{
+   "Expression": "(?i)\\b(home[ _\\-.]?phone)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1308,
+   "Type": 0,
+   "Name": "Home Number 3"
+  },{
+   "Expression": "(?i)\\b(home[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1309,
+   "Type": 0,
+   "Name": "Home Number 4"
+  },{
+   "Expression": "(?i)\\b(cell[ _\\-.]?num(ber)?)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1310,
+   "Type": 0,
+   "Name": "Cell Number"
+  },{
+   "Expression": "(?i)\\b(cell[ _\\-.]?no)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1311,
+   "Type": 0,
+   "Name": "Cell Number 2"
+  },{
+   "Expression": "(?i)\\b(cell[ _\\-.]?phone)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1312,
+   "Type": 0,
+   "Name": "Cell Number 3"
+  },{
+   "Expression": "(?i)\\b(cell[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1313,
+   "Type": 0,
+   "Name": "Cell Number 4"
+  },{
+   "Expression": "(?i)\\b(bus(iness)?[ _\\-.]?num(ber)?)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1314,
+   "Type": 0,
+   "Name": "Business Number"
+  },{
+   "Expression": "(?i)\\b(bus(iness)?[ _\\-.]?no)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1315,
+   "Type": 0,
+   "Name": "Business Number 2"
+  },{
+   "Expression": "(?i)\\b(bus(iness)?[ _\\-.]?phone)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1316,
+   "Type": 0,
+   "Name": "Business Number 3"
+  },{
+   "Expression": "(?i)\\b(bus(iness)?[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1317,
+   "Type": 0,
+   "Name": "Business Number 4"
+  },{
+   "Expression": "(?i)\\b(alt(ernate)?[ _\\-.]?num(ber)?)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1318,
+   "Type": 0,
+   "Name": "Alternate Number"
+  },{
+   "Expression": "(?i)\\b(alt(ernate)?[ _\\-.]?no)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1319,
+   "Type": 0,
+   "Name": "Alternate Number 2"
+  },{
+   "Expression": "(?i)\\b(alt(ernate)?[ _\\-.]?phone)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1320,
+   "Type": 0,
+   "Name": "Alternate Number 3"
+  },{
+   "Expression": "(?i)\\b(alt(ernate)?[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1321,
+   "Type": 0,
+   "Name": "Alternate Number 4"
+  },{
+   "Expression": "(?i)\\b\\w*[ _\\-.]?(e[ _\\-.]?mail[ _\\-.]?addr(ess)?[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1322,
+   "Type": 0,
+   "Name": "Email Address"
+  },{
+   "Expression": "(?i)\\b\\w*[ _\\-.]?(e[ _\\-.]?mail[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1323,
+   "Type": 0,
+   "Name": "Email Address (abbreviated)"
+  },{
+   "Expression": "(?i)\\b(ip[ _\\-.]?addr(ess)?[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1324,
+   "Type": 0,
+   "Name": "IP Address"
+  },{
+   "Expression": "(?i)\\b(mac[ _\\-.]?addr(ess)?[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Technology",
+   "RuleID": 1325,
+   "Type": 0,
+   "Name": "MAC Address"
+  },{
+   "Expression": "(?i)\\b(c(redit)?[ _\\-.]?c(ard)?[ _\\-.]?n(umber)?[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Financial",
+   "RuleID": 1400,
+   "Type": 0,
+   "Name": "Credit Card Number 1"
+  },{
+   "Expression": "(?i)\\b(c(redit)?[ _\\-.]?c(ard)?[ _\\-.]?n(o)?[ _\\-.]?\\d*)\\b",
+   "Enabled": true,
+   "Category": "Financial",
+   "RuleID": 1401,
+   "Type": 0,
+   "Name": "Credit Card Number 2"
+  },{
+   "Expression": "(?i)\\b(cvc[2]?)\\b",
+   "Enabled": true,
+   "Category": "Financial",
+   "RuleID": 1402,
+   "Type": 0,
+   "Name": "CVC2"
+  },{
+   "Expression": "(?i)\\b(cvv[2]?)\\b",
+   "Enabled": true,
+   "Category": "Financial",
+   "RuleID": 1403,
+   "Type": 0,
+   "Name": "CVV2"
+  }]
+}

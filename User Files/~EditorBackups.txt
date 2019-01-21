@@ -1,0 +1,1 @@
+﻿"C:\Users\hanbit\AppData\Roaming\Quest Software\Toad for Oracle\13.1 trial\User Files\~eb41D4.tmp","C:\Users\hanbit\AppData\Roaming\Quest Software\Toad for Oracle\13.1 trial\축구.sql","2019/01/21 오후 8:53:21",3,SOCCER@XE,축구.sql,C:\oraclexe\app\oracle\product\11.2.0\server
