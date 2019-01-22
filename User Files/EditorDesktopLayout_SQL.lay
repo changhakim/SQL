@@ -1,7 +1,7 @@
 [Root]
-DockControlCount=25
+DockControlCount=29
 
-[4]
+[6]
 ClassName=TdxDockSite
 Name=dsRight
 ParentForm=FormToadEditor
@@ -12,14 +12,14 @@ AllowDockClientsBottom=1
 AllowDockClientsClient=1
 DPI=96
 Width=1
-Height=484
+Height=485
 OriginalWidth=1
-OriginalHeight=484
+OriginalHeight=485
 Visible=1
 AutoSize=1
 ChildCount=0
 
-[5]
+[7]
 ClassName=TdxDockSite
 Name=dsTop
 ParentForm=FormToadEditor
@@ -37,7 +37,7 @@ Visible=1
 AutoSize=1
 ChildCount=0
 
-[6]
+[8]
 ClassName=TdxDockSite
 Name=dsLeft
 ParentForm=FormToadEditor
@@ -48,16 +48,16 @@ AllowDockClientsBottom=1
 AllowDockClientsClient=1
 DPI=96
 Width=1
-Height=484
+Height=485
 OriginalWidth=1
 OriginalHeight=426
 Visible=1
 AutoSize=1
 ChildCount=2
-Children0=22
-Children1=7
+Children0=26
+Children1=9
 
-[22]
+[26]
 ClassName=TdxLayoutDockSite
 Name=dxLayoutDockSite1
 ParentForm=FormToadEditor
@@ -81,7 +81,7 @@ CaptionButtonMaximize=1
 Dockable=1
 DPI=96
 Width=153
-Height=176
+Height=312
 OriginalWidth=200
 OriginalHeight=200
 Visible=0
@@ -89,7 +89,7 @@ AutoHide=0
 StoredAutoHide=0
 ChildCount=0
 
-[7]
+[9]
 ClassName=TdxDockPanel
 Name=dpNavigator
 ParentForm=FormToadEditor
@@ -113,7 +113,7 @@ CaptionButtonMaximize=1
 Dockable=1
 DPI=96
 Width=153
-Height=176
+Height=312
 OriginalWidth=200
 OriginalHeight=140
 Visible=0
@@ -121,7 +121,7 @@ AutoHide=0
 StoredAutoHide=0
 ChildCount=0
 
-[8]
+[10]
 ClassName=TdxDockSite
 Name=dsBottom
 ParentForm=FormToadEditor
@@ -132,16 +132,16 @@ AllowDockClientsBottom=1
 AllowDockClientsClient=1
 DPI=96
 Width=1592
-Height=177
+Height=176
 OriginalWidth=827
 OriginalHeight=1
 Visible=1
 AutoSize=1
 ChildCount=2
-Children0=23
-Children1=24
+Children0=24
+Children1=25
 
-[23]
+[24]
 ClassName=TdxLayoutDockSite
 Name=dxLayoutDockSite2
 ParentForm=FormToadEditor
@@ -165,15 +165,15 @@ CaptionButtonMaximize=1
 Dockable=1
 DPI=96
 Width=1592
-Height=177
+Height=176
 OriginalWidth=300
-OriginalHeight=177
+OriginalHeight=176
 Visible=1
 AutoHide=0
 StoredAutoHide=0
 ChildCount=0
 
-[24]
+[25]
 ClassName=TdxTabContainerDockSite
 Name=dxTabContainerDockSite1
 ParentForm=FormToadEditor
@@ -197,26 +197,26 @@ CaptionButtonMaximize=1
 Dockable=1
 DPI=96
 Width=1592
-Height=177
+Height=176
 OriginalWidth=200
-OriginalHeight=177
+OriginalHeight=176
 Visible=1
 AutoHide=0
 StoredAutoHide=0
 ChildCount=13
-Children0=9
-Children1=10
-Children2=11
-Children3=13
-Children4=17
-Children5=12
-Children6=16
-Children7=14
-Children8=15
-Children9=18
-Children10=19
-Children11=20
-Children12=21
+Children0=11
+Children1=12
+Children2=13
+Children3=15
+Children4=19
+Children5=14
+Children6=18
+Children7=16
+Children8=17
+Children9=20
+Children10=21
+Children11=22
+Children12=23
 ActiveChildIndex=1
 AutoHideBarExpandAllTabs=0
 ShowCaption=1
@@ -250,7 +250,7 @@ OptionSort=0
 OptionTopToBottomText=0
 OptionUsePageColorForTab=0
 
-[9]
+[11]
 ClassName=TdxDockPanel
 Name=dpMessages
 ParentForm=FormToadEditor
@@ -274,7 +274,7 @@ CaptionButtonMaximize=1
 Dockable=1
 DPI=96
 Width=1588
-Height=128
+Height=127
 OriginalWidth=200
 OriginalHeight=140
 Visible=1
@@ -282,7 +282,7 @@ AutoHide=0
 StoredAutoHide=0
 ChildCount=0
 
-[10]
+[12]
 ClassName=TdxDockPanel
 Name=dpQueryResults
 ParentForm=FormToadEditor
@@ -306,7 +306,7 @@ CaptionButtonMaximize=1
 Dockable=1
 DPI=96
 Width=1588
-Height=128
+Height=127
 OriginalWidth=200
 OriginalHeight=140
 Visible=1
@@ -314,7 +314,7 @@ AutoHide=0
 StoredAutoHide=0
 ChildCount=0
 
-[11]
+[13]
 ClassName=TdxDockPanel
 Name=dpAutoTrace
 ParentForm=FormToadEditor
@@ -346,7 +346,7 @@ AutoHide=0
 StoredAutoHide=0
 ChildCount=0
 
-[13]
+[15]
 ClassName=TdxDockPanel
 Name=dpDBMSOutput
 ParentForm=FormToadEditor
@@ -378,7 +378,7 @@ AutoHide=0
 StoredAutoHide=0
 ChildCount=0
 
-[17]
+[19]
 ClassName=TdxDockPanel
 Name=dpQueryViewer
 ParentForm=FormToadEditor
@@ -410,7 +410,7 @@ AutoHide=0
 StoredAutoHide=0
 ChildCount=0
 
-[12]
+[14]
 ClassName=TdxDockPanel
 Name=dpExplainPlan
 ParentForm=FormToadEditor
@@ -442,7 +442,7 @@ AutoHide=0
 StoredAutoHide=0
 ChildCount=0
 
-[16]
+[18]
 ClassName=TdxDockPanel
 Name=dpScriptOutput
 ParentForm=FormToadEditor
@@ -466,15 +466,15 @@ CaptionButtonMaximize=1
 Dockable=1
 DPI=96
 Width=1588
-Height=153
+Height=127
 OriginalWidth=200
 OriginalHeight=140
-Visible=0
+Visible=1
 AutoHide=0
 StoredAutoHide=0
 ChildCount=0
 
-[14]
+[16]
 ClassName=TdxDockPanel
 Name=dpBreakpoints
 ParentForm=FormToadEditor
@@ -506,7 +506,7 @@ AutoHide=0
 StoredAutoHide=0
 ChildCount=0
 
-[15]
+[17]
 ClassName=TdxDockPanel
 Name=dpWatches
 ParentForm=FormToadEditor
@@ -538,7 +538,7 @@ AutoHide=0
 StoredAutoHide=0
 ChildCount=0
 
-[18]
+[20]
 ClassName=TdxDockPanel
 Name=dpCursorResults
 ParentForm=FormToadEditor
@@ -570,7 +570,7 @@ AutoHide=0
 StoredAutoHide=0
 ChildCount=0
 
-[19]
+[21]
 ClassName=TdxDockPanel
 Name=dpCallStack
 ParentForm=FormToadEditor
@@ -602,7 +602,7 @@ AutoHide=0
 StoredAutoHide=0
 ChildCount=0
 
-[20]
+[22]
 ClassName=TdxDockPanel
 Name=dpProfiler
 ParentForm=FormToadEditor
@@ -634,7 +634,7 @@ AutoHide=0
 StoredAutoHide=0
 ChildCount=0
 
-[21]
+[23]
 ClassName=TdxDockPanel
 Name=dpTeamCoding
 ParentForm=FormToadEditor
