@@ -191,14 +191,6 @@ ORDER BY HOMETEAM_ID;
 -- SOCCER_SQL_016
 -- 평균키가 인천 유나이티스팀의 평균키 보다 작은 팀의 
 -- 팀ID, 팀명, 평균키 추출
-SELECT T.TEAM_ID,T.TEAM_NAME,ROUND(AVG(P.HEIGHT),2) 평균키
-    FROM (SELECT HEIGHT,TEAM_ID
-          FROM PLAYER) P
-    JOIN TEAM T ON P.TEAM_ID LIKE T.TEAM_ID
-    GROUP BY T.TEAM_ID,T.TEAM_NAME
-    HAVING ROUND(AVG(P.HEIGHT),2)<180.51 ;
-    
-
 
 SELECT T.TEAM_ID 팀아이디,T.TEAM_NAME 팀명,ROUND(AVG(P.HEIGHT),2) 평균키
 FROM (SELECT HEIGHT,TEAM_ID
@@ -210,7 +202,20 @@ HAVING ROUND(AVG(P.HEIGHT),2) < (SELECT ROUND(AVG(HEIGHT),2)
                         GROUP BY TEAM_ID
                         HAVING TEAM_ID LIKE 'K04'
                         ) 
-ORDER BY 평균키 ;                    
+ORDER BY 평균키 ;   
+
+SELECT T.TEAM_ID 팀아이디,T.TEAM_NAME 팀명,ROUND(AVG(P.HEIGHT),2) 평균키
+FROM (SELECT HEIGHT,TEAM_ID
+      FROM PLAYER) P 
+    JOIN TEAM T ON P.TEAM_ID = T.TEAM_ID
+GROUP BY T.TEAM_ID,T.TEAM_NAME
+HAVING ROUND(AVG(P.HEIGHT),2) < (SELECT ROUND(AVG(HEIGHT),2)
+                        FROM TEAM T
+                            JOIN PLAYER P
+                            ON T.TEAM_ID LIKE P.TEAM_ID
+                        WHERE T.TEAM_NAME LIKE '유나이티드'
+                        ) 
+ ;                             
 
 
 
@@ -243,19 +248,19 @@ WHERE ROWNUM <= 5;
 
 -- SOCCER_SQL_019
 -- 선수 자신이 속한 팀의 평균키보다 작은 선수 정보 출력
-SELECT TEAM_NAME 팀명,PLAYER_NAME 선수명,POSITION 포지션,BACK_NO 백넘버,HEIGHT 키
-FROM (SELECT PLAYER_NAME,POSITION,BACK_NO,AVG(HEIGHT) ,HEIGHT, TEAM_ID
-      FROM PLAYER )P
-    JOIN TEAM T ON T.TEAM_ID LIKE P.TEAM_ID
-    GROUP BY T.TEAM_ID,T.TEAM_NAME,PLAYER_NAME,POSITION,BACK_NO,HEIGHT
-    
-     ;
-      
-  SELECT TEAM_NAME 팀명,PLAYER_NAME 선수명,POSITION 포지션,BACK_NO 백넘버,HEIGHT 키   
-  FROM PLAYER P    
-  WHERE P.HEIGHT <= (SELECT AVG(P.HEIGHT)
-      FROM TEAM
-      GROUP BY TEAM_ID);
+SELECT TEAM_NAME,PLAYER_NAME,POSITION,BACK_NO,HEIGHT
+FROM (SELECT PLAYER_NAME,POSITION,BACK_NO,HEIGHT,TEAM_ID
+      FROM PLAYER) P
+      JOIN TEAM T ON P.TEAM_ID = T.TEAM_ID
+WHERE P.HEIGHT<(SELECT ROUND(AVG(S.HEIGHT),2)
+                FROM PLAYER S
+                WHERE S.TEAM_ID = P.TEAM_ID
+                GROUP BY TEAM_ID )
+                                             
+ORDER BY PLAYER_NAME ;
+;
+
+
 -- SOCCER_SQL_020
 -- 2012년 5월 한달간 경기가 있는 경기장 조회
 -- EXISTS 쿼리는 항상 연관쿼리로 상요한다.
@@ -268,6 +273,9 @@ WHERE EXISTS(SELECT 1
       FROM SCHEDULE D
       WHERE D.STADIUM_ID = S.STADIUM_ID AND D.SCHE_DATE BETWEEN '20120501' AND '20120531'
       );
+      
+      
+      
       
       SELECT S.STADIUM_ID,S.STADIUM_NAME,D.SCHE_DATE
       FROM STADIUM S

@@ -5,7 +5,8 @@ FROM (SELECT TEAM_ID,PLAYER_NAME,POSITION,BACK_NO
       FROM PLAYER
       WHERE TEAM_ID LIKE(SELECT TEAM_ID
                          FROM PLAYER
-                         WHERE PLAYER_NAME LIKE '이현'));
+                         WHERE PLAYER_NAME LIKE '이현')
+      ORDER BY PLAYER_NAME);
                          
 SELECT PLAYER_NAME
 FROM PLAYER
@@ -58,3 +59,6 @@ SELECT DISTINCT(SELECT ROUND(AVG(HEIGHT),2)
                 FROM PLAYER
                 ) "전체 평균 키"
  FROM PLAYER;
+ 
+ 
+ 
