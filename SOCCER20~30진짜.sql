@@ -74,6 +74,33 @@ WHERE (P.TEAM_ID,P.HEIGHT) IN(SELECT P1.TEAM_ID, MIN(P1.HEIGHT)
 ORDER BY P.TEAM_ID,P.PLAYER_NAME;
 
 
+-- SOCCER_SQL_025 
+-- K-리그 2012년 8월 경기결과와 두 팀간의 점수차를 ABS 함수를 사용하여
+-- 절대값으로 출력하기
+SELECT  C.SCHE_DATE,(SELECT T1.TEAM_NAME
+                            FROM TEAM T1
+                            WHERE T1.TEAM_ID LIKE C.HOMETEAM_ID)||'-'||(SELECT T2.TEAM_NAME
+                                                                        FROM TEAM T2
+                                                                        WHERE T2.TEAM_ID LIKE C.AWAYTEAM_ID) 팀들,
+                                                                        HOME_SCORE||'-'||AWAY_SCORE 점수,
+                                                                        (SELECT ABS(HOME_SCORE-AWAY_SCORE)
+                                                                        FROM SCHEDULE C1
+                                                                        WHERE (C1.HOMETEAM_ID,C1.AWAYTEAM_ID,C1.SCHE_DATE) IN
+                                                                              (SELECT C.HOMETEAM_ID,C.AWAYTEAM_ID,C.SCHE_DATE
+                                                                               FROM SCHEDULE))점수차
+        
+     FROM STADIUM S
+     JOIN TEAM T ON S.STADIUM_ID = T.STADIUM_ID
+     JOIN (SELECT SCHE_DATE,STADIUM_ID,HOMETEAM_ID,AWAYTEAM_ID,HOME_SCORE ,AWAY_SCORE
+           FROM SCHEDULE
+           WHERE SCHE_DATE BETWEEN 20120801 AND 20120831) C ON S.STADIUM_ID = C.STADIUM_ID
+ORDER BY C.SCHE_DATE            
+    ; 
+    
+    
+ C1.HOMETEAM_ID LIKE C.HOMETEAM_ID AND C1.AWAYTEAM_ID LIKE C.AWAYTEAM_ID AND C1.SCHE_DATE LIKE C.SCHE_DATE 
+
+
 -- SOCCER_SQL_026 
 -- 20120501 부터 20120602 사이에 경기가 있는 경기장 조회
 SELECT STADIUM_ID,STADIUM_NAME

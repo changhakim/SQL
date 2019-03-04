@@ -11,7 +11,7 @@
 					<AutoConnect>True</AutoConnect>
 					<Home>C:\oraclexe\app\oracle\product\11.2.0\server</Home>
 					<SavePassword>True</SavePassword>
-					<Password>ps4VwDqjbHBfDlTCwR+k6H1YwtJihba+gZXNpg==</Password>
+					<Password>Wkq2a8Divyny6BCnYx+nuIMynesJLa7mgZLM5g==</Password>
 					<Favorite>False</Favorite>
 					<SessionReadOnly>False</SessionReadOnly>
 					<Alias/>
@@ -24,59 +24,9 @@
 					<Protocol/>
 					<Color>16777215</Color>
 					<ConnectionMode>Default</ConnectionMode>
-					<LastConnectionDate>2019-01-24T00:39:22.133Z</LastConnectionDate>
+					<LastConnectionDate>2019-03-04T01:21:52.301Z</LastConnectionDate>
 					<RelativePosition>2</RelativePosition>
 					<GUID>{C906D51A-8941-4EB6-8CDA-B870BF88AC98}</GUID>
-					<CustomFields/>
-				</Connection>
-				<Connection type="Oracle">
-					<User>
-						<![CDATA[SOCCER]]>
-					</User>
-					<Server>XE</Server>
-					<AutoConnect>False</AutoConnect>
-					<Home>C:\oraclexe\app\oracle\product\11.2.0\server</Home>
-					<SavePassword>False</SavePassword>
-					<Favorite>False</Favorite>
-					<SessionReadOnly>False</SessionReadOnly>
-					<Alias/>
-					<Host/>
-					<InstanceName/>
-					<Sid/>
-					<Port/>
-					<LDAP/>
-					<ConnectionType>Client</ConnectionType>
-					<Protocol/>
-					<Color>16777215</Color>
-					<ConnectionMode>SYSDBA</ConnectionMode>
-					<LastConnectionDate>2019-01-21T03:24:53.198Z</LastConnectionDate>
-					<RelativePosition>3</RelativePosition>
-					<GUID>{41A26369-7E6B-4913-AFFF-B1C894DACD8B}</GUID>
-					<CustomFields/>
-				</Connection>
-				<Connection type="Oracle">
-					<User>
-						<![CDATA[HR]]>
-					</User>
-					<Server>XE</Server>
-					<AutoConnect>False</AutoConnect>
-					<Home>C:\oraclexe\app\oracle\product\11.2.0\server</Home>
-					<SavePassword>False</SavePassword>
-					<Favorite>False</Favorite>
-					<SessionReadOnly>False</SessionReadOnly>
-					<Alias/>
-					<Host/>
-					<InstanceName/>
-					<Sid/>
-					<Port/>
-					<LDAP/>
-					<ConnectionType>Client</ConnectionType>
-					<Protocol/>
-					<Color>16777215</Color>
-					<ConnectionMode>Default</ConnectionMode>
-					<LastConnectionDate>2019-01-21T00:49:36.732Z</LastConnectionDate>
-					<RelativePosition>1</RelativePosition>
-					<GUID>{D5E103F4-00B5-4801-89C0-EC6AA7637764}</GUID>
 					<CustomFields/>
 				</Connection>
 				<Connection type="Oracle">
@@ -99,9 +49,59 @@
 					<Protocol/>
 					<Color>16777215</Color>
 					<ConnectionMode>Default</ConnectionMode>
-					<LastConnectionDate>2019-01-17T00:31:05.999Z</LastConnectionDate>
+					<LastConnectionDate>2019-02-28T05:55:00.377Z</LastConnectionDate>
 					<RelativePosition>0</RelativePosition>
 					<GUID>{E556B5B9-9070-4C14-B335-88E844F9B7D9}</GUID>
+					<CustomFields/>
+				</Connection>
+				<Connection type="Oracle">
+					<User>
+						<![CDATA[HR]]>
+					</User>
+					<Server>XE</Server>
+					<AutoConnect>False</AutoConnect>
+					<Home>C:\oraclexe\app\oracle\product\11.2.0\server</Home>
+					<SavePassword>False</SavePassword>
+					<Favorite>False</Favorite>
+					<SessionReadOnly>False</SessionReadOnly>
+					<Alias/>
+					<Host/>
+					<InstanceName/>
+					<Sid/>
+					<Port/>
+					<LDAP/>
+					<ConnectionType>Client</ConnectionType>
+					<Protocol/>
+					<Color>16777215</Color>
+					<ConnectionMode>Default</ConnectionMode>
+					<LastConnectionDate>2019-02-28T05:54:23.113Z</LastConnectionDate>
+					<RelativePosition>1</RelativePosition>
+					<GUID>{D5E103F4-00B5-4801-89C0-EC6AA7637764}</GUID>
+					<CustomFields/>
+				</Connection>
+				<Connection type="Oracle">
+					<User>
+						<![CDATA[SOCCER]]>
+					</User>
+					<Server>XE</Server>
+					<AutoConnect>False</AutoConnect>
+					<Home>C:\oraclexe\app\oracle\product\11.2.0\server</Home>
+					<SavePassword>False</SavePassword>
+					<Favorite>False</Favorite>
+					<SessionReadOnly>False</SessionReadOnly>
+					<Alias/>
+					<Host/>
+					<InstanceName/>
+					<Sid/>
+					<Port/>
+					<LDAP/>
+					<ConnectionType>Client</ConnectionType>
+					<Protocol/>
+					<Color>16777215</Color>
+					<ConnectionMode>SYSDBA</ConnectionMode>
+					<LastConnectionDate>2019-02-20T07:12:30.756Z</LastConnectionDate>
+					<RelativePosition>3</RelativePosition>
+					<GUID>{41A26369-7E6B-4913-AFFF-B1C894DACD8B}</GUID>
 					<CustomFields/>
 				</Connection>
 			</Connections>
